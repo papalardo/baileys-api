@@ -8,7 +8,7 @@ FROM base AS builder
 
 WORKDIR /app
 
-COPY package*.json pnpm-lock.yaml .
+COPY package.json pnpm-lock.yaml ./
 
 RUN --mount=type=cache,id=pnpm,target=/pnpm/store pnpm install --frozen-lockfile
 
@@ -16,10 +16,12 @@ COPY . .
 
 RUN npx prisma generate
 
+RUN pnpm build
+
 RUN npx prisma migrate
 
 EXPOSE 3000
 
-CMD [ "pnpm", "dev" ]
+CMD [ "pnpm", "start" ]
 
 

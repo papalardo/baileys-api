@@ -11,7 +11,9 @@
 		"format": "prettier . --write",
 		"postinstall": "prisma generate",
 		"changelog:preview": "conventional-changelog -p angular -u",
-		"changelog:last": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0"
+		"changelog:last": "conventional-changelog -p angular -i CHANGELOG.md -s -r 0",
+		"docker:up": "docker compose -f docker-compose.dev.yml up -d",
+		"docker:down": "docker compose -f docker-compose.dev.yml down"
 	},
 	"repository": {
 		"type": "git",
@@ -82,8 +84,9 @@
 		"tscpaths": "^0.0.9",
 		"typescript": "^5.3.3"
 	},
+	"packageManager": "pnpm@9.9.0",
 	"engines": {
-		"node": ">=18.19.0"
+		"node": ">=18.12.1"
 	},
 	"files": [
 		"dist/",
