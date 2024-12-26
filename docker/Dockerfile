@@ -18,7 +18,7 @@ RUN npx prisma generate
 
 RUN pnpm build
 
-RUN npx prisma migrate deploy
+RUN npx prisma db push
 
 EXPOSE 3000
 
