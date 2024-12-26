@@ -18,10 +18,8 @@ RUN npx prisma generate
 
 RUN pnpm build
 
-RUN npx prisma migrate
+RUN npx prisma migrate deploy
 
 EXPOSE 3000
 
 CMD [ "pnpm", "start" ]
-
-
